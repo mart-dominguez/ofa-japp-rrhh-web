@@ -5,6 +5,8 @@
  */
 package utn.frsf.ofa.cursojava.rrhh.web.logica;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.transaction.Transactional;
 import utn.frsf.ofa.cursojava.rrhh.web.modelo.Empleado;
 import utn.frsf.ofa.cursojava.rrhh.web.modelo.Proyecto;
 
@@ -12,6 +14,8 @@ import utn.frsf.ofa.cursojava.rrhh.web.modelo.Proyecto;
  *
  * @author mdominguez
  */
+@ApplicationScoped
+@Transactional
 public interface ProyectoLogica {
 
     public boolean cupoDisponible(Proyecto p);
