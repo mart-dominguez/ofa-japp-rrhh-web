@@ -9,22 +9,19 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import utn.frsf.ofa.cursojava.rrhh.web.modelo.Cliente;
+import utn.frsf.ofa.cursojava.rrhh.web.modelo.Empleado;
 
 /**
  *
  * @author mdominguez
  */
 @Stateless
-public class ClienteService {
+public class EmpleadoService {
 
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
-        
     @PersistenceContext(unitName = "RRHH_WEB_PU")
     private EntityManager em;
 
-    public Cliente guardar(Cliente c){
+    public Empleado guardar(Empleado c){
         if(c.getId()==null) em.persist(c);
         else c = em.merge(c);
         em.flush();
@@ -32,22 +29,23 @@ public class ClienteService {
         return c;
     }
 
-    public Cliente porId(Integer id){
-        return this.em.find(Cliente.class,id);
+    public Empleado porId(Integer id){
+        return this.em.find(Empleado.class,id);
     }
 
     public void borrar(Integer id){
-        this.em.remove(this.em.find(Cliente.class,id));        
+        this.em.remove(this.em.find(Empleado.class,id));        
     }
     
-    public List<Cliente> todos(){
-        return this.em.createQuery("SELECT c FROM Cliente c").getResultList();
+    public List<Empleado> todos(){
+        return this.em.createQuery("SELECT e FROM Empleado e").getResultList();
     }
     
-    public List<Cliente> porNombre(String nombre){
+    public List<Empleado> porNombre(String nombre){
         return this.em
-                .createQuery("SELECT c FROM Cliente c WHERE c.nombre LIKE CONCAT('%',:P_NOMBRE,'%')")
+                .createQuery("SELECT e FROM Empleado e WHERE e.nombre LIKE CONCAT('%',:P_NOMBRE,'%')")
                 .setParameter("P_NOMBRE", nombre)
                 .getResultList();
     }
+    
 }

@@ -61,5 +61,11 @@ public class Cliente {
         this.cuit = cuit;
     }
 
+    @Override
+    public String toString() {
+        return "Cliente{" + "id=" + id + ", nombre=" + nombre + ", correo=" + correo + ", cuit=" + cuit +  '}';
+    }
+
+    
 
 }

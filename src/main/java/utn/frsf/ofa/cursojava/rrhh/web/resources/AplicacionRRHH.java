@@ -20,6 +20,7 @@ public class AplicacionRRHH extends Application {
     @Override
     public Set<Class<?>> getClasses() {
         final Set<Class<?>> classes = new HashSet<>();
+        classes.add(EmpleadoResource.class);
         classes.add(ClienteResource.class);
         return classes;
     }
