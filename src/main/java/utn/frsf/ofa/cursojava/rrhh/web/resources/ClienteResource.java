@@ -66,7 +66,7 @@ public class ClienteResource {
     
     @DELETE
     @Path("{id}")
-    public Response actualizarCliente(@PathParam("id") Integer idCliente){
+    public Response borrarCliente(@PathParam("id") Integer idCliente){
         clienteService.borrar(idCliente);
         return Response.ok("DELETE ok").build();
     }

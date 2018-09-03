@@ -27,7 +27,7 @@ import utn.frsf.ofa.cursojava.rrhh.web.service.EmpleadoService;
  * @author mdominguez
  */
 @Stateless
-@Path("/cliente")
+@Path("/emplleado")
 public class EmpleadoResource {
 
     @Inject 

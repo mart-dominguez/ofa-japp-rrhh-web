@@ -5,12 +5,15 @@
  */
 package utn.frsf.ofa.cursojava.rrhh.web.logica;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.RequestScoped;
 import utn.frsf.ofa.cursojava.rrhh.web.modelo.Empleado;
 
 /**
  *
  * @author mdominguez
  */
+@ApplicationScoped
 public class EmpleadoLogicaMock implements EmpleadoLogica{
 
     @Override

@@ -5,6 +5,7 @@
  */
 package utn.frsf.ofa.cursojava.rrhh.web.logica;
 
+import javax.enterprise.context.ApplicationScoped;
 import utn.frsf.ofa.cursojava.rrhh.web.modelo.Empleado;
 import utn.frsf.ofa.cursojava.rrhh.web.modelo.Proyecto;
 
@@ -12,6 +13,7 @@ import utn.frsf.ofa.cursojava.rrhh.web.modelo.Proyecto;
  *
  * @author mdominguez
  */
+@ApplicationScoped
 public class ProyectoLogicaMock implements ProyectoLogica{
 
     @Override
