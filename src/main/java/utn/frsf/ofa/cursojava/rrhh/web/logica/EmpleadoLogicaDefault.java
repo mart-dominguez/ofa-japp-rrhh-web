@@ -5,25 +5,19 @@
  */
 package utn.frsf.ofa.cursojava.rrhh.web.logica;
 
-import javax.annotation.Priority;
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.context.RequestScoped;
-import javax.enterprise.inject.Alternative;
-import javax.interceptor.Interceptor;
 import utn.frsf.ofa.cursojava.rrhh.web.modelo.Empleado;
 
 /**
  *
  * @author mdominguez
  */
-@ApplicationScoped
-@Alternative
-@Priority(Interceptor.Priority.APPLICATION+10)
-public class EmpleadoLogicaMock implements EmpleadoLogica{
+@ApplicationScoped 
+public class EmpleadoLogicaDefault implements EmpleadoLogica {
 
     @Override
-    public boolean puedeSumarseProyectoNuevo(Empleado e) {        
-        return true;
+    public boolean puedeSumarseProyectoNuevo(Empleado e) {
+        return e.getProyectosAsignados().size()<2;
     }
     
 }

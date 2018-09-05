@@ -5,10 +5,7 @@
  */
 package utn.frsf.ofa.cursojava.rrhh.web.logica;
 
-import javax.annotation.Priority;
-import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Alternative;
-import javax.interceptor.Interceptor;
 import utn.frsf.ofa.cursojava.rrhh.web.modelo.Empleado;
 import utn.frsf.ofa.cursojava.rrhh.web.modelo.Proyecto;
 
@@ -16,24 +13,29 @@ import utn.frsf.ofa.cursojava.rrhh.web.modelo.Proyecto;
  *
  * @author mdominguez
  */
-@ApplicationScoped
-@Alternative
-@Priority(Interceptor.Priority.APPLICATION+10)
-public class ProyectoLogicaMock implements ProyectoLogica{
+
+public class ProyectoLogicaDefault implements ProyectoLogica{
 
     @Override
     public boolean cupoDisponible(Proyecto p) {
-        return true;
+        return p.getEmpleados().size()<3;
     }
 
     @Override
     public boolean tieneEmpleadoEfectivo(Proyecto p) {
-        return true;
+        for(Empleado e: p.getEmpleados()){
+            if(e.esEfectivo()) return true;
+        }
+        return false;
     }
 
     @Override
     public boolean presupuestoDisponible(Proyecto p, Empleado e) {
-        return true;
+        double total = 0.0;
+        for(Empleado emp: p.getEmpleados() ){
+            total += emp.salario();
+        }
+        return (p.getPresupuestoMaximo()- total - e.salario())>0;
     }
     
 }
