@@ -40,5 +40,9 @@ public class ClienteController implements Serializable{
         return null;
     }
     
+    public String nuevo(){
+        this.cliente = new Cliente();
+        return null;
+    }
     
 }

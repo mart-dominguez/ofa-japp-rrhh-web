@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -34,7 +35,7 @@ import utn.frsf.ofa.cursojava.rrhh.web.service.ProyectoService;
 @Path("/proyecto")
 public class ProyectoResource {
 
-    @Inject 
+    @EJB 
     private ProyectoService proyectoService;
     
     @GET

@@ -7,6 +7,7 @@ package utn.frsf.ofa.cursojava.rrhh.web.resources;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -27,10 +28,10 @@ import utn.frsf.ofa.cursojava.rrhh.web.service.EmpleadoService;
  * @author mdominguez
  */
 @Stateless
-@Path("/emplleado")
+@Path("/empleado")
 public class EmpleadoResource {
 
-    @Inject 
+    @EJB 
     private EmpleadoService clienteService;
     
     @GET

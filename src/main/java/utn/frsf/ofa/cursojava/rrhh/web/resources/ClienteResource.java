@@ -7,6 +7,7 @@ package utn.frsf.ofa.cursojava.rrhh.web.resources;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -30,7 +31,7 @@ import utn.frsf.ofa.cursojava.rrhh.web.service.ClienteService;
 @Path("/cliente")
 public class ClienteResource {
 
-    @Inject 
+    @EJB 
     private ClienteService clienteService;
     
     @GET

@@ -7,7 +7,7 @@
                 xmlns:p="http://primefaces.org/ui">
 
     <ui:define name="top">
-        top
+                <ui:include src="menu.xhtml"></ui:include>
     </ui:define>
 
     <ui:define name="content">
@@ -18,14 +18,17 @@
             <h1>Alta de Clientes</h1>
             <h:panelGrid columns="2">
                 <h:outputLabel for="txtNombreCliente" value="Nombre:"></h:outputLabel>
-                <p:inputText id="txtNombreCliente" value="#{clienteController.cliente.nombre}"></p:inputText>
+                <p:inputText id="txtNombreCliente" value="#{clienteController.cliente.nombre}" disabled="#{empty clienteController.cliente}"></p:inputText>
                 <h:outputLabel for="txtNombreCliente" value="CUIT"></h:outputLabel>
-                <p:inputMask id="txtCuit" value="#{clienteController.cliente.cuit}" mask="99-99999999-9"></p:inputMask>
+                <p:inputMask id="txtCuit" value="#{clienteController.cliente.cuit}" mask="99-99999999-9" disabled="#{empty clienteController.cliente}"></p:inputMask>
                 <h:outputLabel for="txtNombreCliente" value="Correo"></h:outputLabel>
-                <p:inputText id="txtCorreo" value="#{clienteController.cliente.correo}"></p:inputText>
+                <p:inputText id="txtCorreo" value="#{clienteController.cliente.correo}" disabled="#{empty clienteController.cliente}"></p:inputText>
             </h:panelGrid>
-            <p:commandButton value="Guardar" action="#{clienteController.guardar}"></p:commandButton>
+            <p:commandButton value="Guardar" action="#{clienteController.guardar}" disabled="#{empty clienteController.cliente}" update="frmAltaCliente"></p:commandButton>
+            <p:commandButton value="Nuevo" action="#{clienteController.nuevo}" 
+                             disabled="#{not empty clienteController.cliente}" update="frmAltaCliente"></p:commandButton>
         </h:form>
+        <p:link outcome="listaClientes.xhtml" value="Ver Lista de Clientes"></p:link>
     </ui:define>
 
 </ui:composition>
